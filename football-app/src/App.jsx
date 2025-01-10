@@ -9,7 +9,7 @@ function App() {
   return (
     <>
      
-    <BrowserRouter>
+    {/* <BrowserRouter>
   <Home></Home>
     <Routes>
       <Route path='/registrazione' element= {<Registrazione></Registrazione>}></Route>
@@ -17,7 +17,8 @@ function App() {
 
     </Routes>
     
-    </BrowserRouter>
+    </BrowserRouter> */}
+    <Home></Home>
 
     </>
   )
