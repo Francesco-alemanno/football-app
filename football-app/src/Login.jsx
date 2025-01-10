@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Login() {
   const [data, setData] = useState({
@@ -16,7 +16,10 @@ export function Login() {
     });
   };
 
+  const navigate = useNavigate();
   
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -30,24 +33,21 @@ export function Login() {
       
       if (parsedUsers.email === data.email && parsedUsers.password === data.password) {
         alert('Accesso consentito');
+        navigate('/home')
       } else {
         alert('Accesso negato');
       }
     } else {
       alert('Nessun utente trovato');
     }
-
+const user= localStorage.setItem('user', userExist)
    
     setData({
       email: "",
       password: "",
     });
   };
-  const navigate= useNavigate()
-
-  const navigateTo= ()=>{
-    navigate('/registrazione')
-  }
+ 
 
   return (
     <div>
@@ -72,7 +72,7 @@ export function Login() {
           placeholder="Inserisci la tua password..."
         />
         <button type="submit">Login</button>
-        <button onClick={navigateTo}>Registrazione</button>
+        <p>Non sei ancora registrato? <Link to={'/registrazione'}>Registrati!</Link></p>
       </form>
     </div>
   );

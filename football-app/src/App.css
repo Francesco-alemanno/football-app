@@ -1,21 +1,42 @@
 #root {
  
- margin: 0;
-  
-  font-family: 'Courier New', Courier, monospace;
-}
-
-
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-/* registrazione */
-.registrazione{
+  margin: 0;
+   
+   font-family: 'Courier New', Courier, monospace;
+ }
+ 
+ 
+ 
+ .card {
+   padding: 2em;
+ }
+ 
+ .read-the-docs {
+   color: #888;
+ }
+ /* registrazione */
+ .registrazione{
+   display: flex;
+   flex-direction: column;
+   border: 8px solid black;
+   padding: 20px;
+   border-radius: 8px;
+   background-color: #2BA9BC;
+   gap: 5px;
+  align-items: center;
+  justify-content: center;
+  height: 48rem;
+ }
+ .registrazione input{
+   padding: 8px;
+   border-radius: 8px;
+   border: none;
+ }
+ 
+ 
+ /* login */
+ 
+ .login{
   display: flex;
   flex-direction: column;
   border: 8px solid black;
@@ -24,40 +45,37 @@
   background-color: #2BA9BC;
   gap: 5px;
  align-items: center;
-}
-.registrazione input{
-  padding: 8px;
-  border-radius: 8px;
-  border: none;
-}
+ justify-content: center;
+ height: 48rem;
+ }
+ 
+ .login input{
+   padding: 8px;
+   border-radius: 8px;
+   border: none;
+ }
+ 
+ .home{
+   background-color:#2BA9BC ;
+   
+ }
+ .table{
+   display: flex;
+   flex-direction: row;
+   padding: 10px;
+   border: 1px solid black;
+ }
+ 
+ .nav-home{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   border: 2px solid black;
+   background-color:#2BA9BC ;
+ }
 
-
-/* login */
-
-.login{
-  display: flex;
-  flex-direction: column;
-  border: 8px solid black;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #2BA9BC;
-  gap: 5px;
- align-items: center;
-}
-
-.login input{
-  padding: 8px;
-  border-radius: 8px;
-  border: none;
-}
-
-.home{
-  background-color:#2BA9BC ;
-  
-}
-.table{
-  display: flex;
-  flex-direction: row;
-  padding: 10px;
-  border: 1px solid black;
-}
+ .nav-utente{
+  text-align: center;
+  font-size: 12px;
+  margin: 0;
+ }

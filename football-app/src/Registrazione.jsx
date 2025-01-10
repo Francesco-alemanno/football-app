@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export function Registrazione() {
   const [data, setData] = useState({
@@ -8,10 +8,26 @@ export function Registrazione() {
     email: "",
     password: "",
   });
+  const [errore, setErrore] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
 
- 
+ const navigate=useNavigate()
   const handleChange = (event) => {
     const { name, value } = event.target;
+    if (name === "password") {
+      if (
+        value.length < 6 ||
+        !/\d/.test(value) ||
+        !/[!@#$%^&*()]/.test(value)
+      ) {
+        setErrore(
+          "La password deve contenere almeno sei caratteri di cui almeno un carattere speciale e una lettera maiuscola"
+        );
+      } else {
+        setErrore("");
+      }
+    }
+
     setData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -24,7 +40,7 @@ export function Registrazione() {
 
     localStorage.setItem("users", JSON.stringify(data));
 
-    
+    navigate('/login')
     setData({
       nome: "",
       cognome: "",
@@ -34,12 +50,7 @@ export function Registrazione() {
   };
 
   
-  const navigate = useNavigate();
-
-  const navigateTo = () => {
-    navigate('/login'); 
-  };
-
+  
   return (
     <div>
       <form onSubmit={handleSubmit} className="registrazione">
@@ -82,8 +93,13 @@ export function Registrazione() {
           placeholder="Inserisci la tua password..."
         />
         
-        <button type="submit">Registrati</button>
-        <button type="button" onClick={navigateTo}>Vai al Login</button>
+        {errore && <p style={{ color: "red" }}> {errore}</p>}
+        {errorEmail && <p style={{ color: "red" }}> {errorEmail}</p>}
+        <button onClick={Navigate('/login')} disabled={errore ? true : false} type="submit">
+          {" "}
+          Registrati
+        </button>
+        <p>Hai già un account? <Link to={'/login'}>Login</Link></p>
       </form>
     </div>
   );
