@@ -79,3 +79,37 @@
   font-size: 12px;
   margin: 0;
  }
+ .cl-home{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid black;
+  background-color:#2BA9BC ;
+padding: 10px;
+gap: 15px;
+margin-top: 10px;
+
+}
+.champions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
+  background-color:#2BA9BC ;
+padding: 10px;
+gap: 15px;
+margin-top: 10px;
+
+}
+.team1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.team2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
