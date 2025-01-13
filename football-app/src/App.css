@@ -2,7 +2,7 @@
  
   margin: 0;
    
-   font-family: 'Courier New', Courier, monospace;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
  }
  
  
@@ -95,7 +95,7 @@ margin-top: 10px;
   justify-content: space-between;
   align-items: center;
   border: 2px solid black;
-  background-color:#2BA9BC ;
+  background-color: #efeaff;
 padding: 10px;
 gap: 15px;
 margin-top: 10px;
@@ -112,4 +112,32 @@ border-radius: 8px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.results{
+  display: flex;
+  gap: 10px;
+}
+
+.marcatori{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  background-color: #efeaff;
+padding: 10px;
+margin-top: 10px;
+border-radius: 8px;
+list-style: none;
+gap: 5px;
+}
+
+.btn{
+  padding: 10px;
+  border: 2px solid black;
+  background-color:#2BA9BC ;
+  border-radius: 8px;
+}
+.champions-home{
+  background-color: #2BA9BC;
+  border: 2px solid black;
+
 }
