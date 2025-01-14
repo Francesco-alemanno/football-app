@@ -141,3 +141,11 @@ gap: 5px;
   border: 2px solid black;
 
 }
+
+/* --------------------------- */
+.table{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+}
