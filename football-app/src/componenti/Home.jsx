@@ -21,18 +21,18 @@ const userNameParse=JSON.parse(userName)
 
         <div className="cl-home">
   <img src="src/assets/champions.svg" width={50} alt="champions league" />
-  <Link to={'/champions'}>Scopri i risultati della Uefa Champions League!</Link> 
+  <Link className="link" to={'/champions'}>Scopri i risultati della Uefa Champions League!</Link> 
   
 </div>
 
 <div className="cl-home">
   <img src="src/assets/EL.svg" width={50} alt="champions league" />
-  <Link to={'/europa'}>Scopri i risultati della Uefa Europa League! Giornata 7</Link> 
+  <Link className="link" to={'/europa'}>Scopri i risultati della Uefa Europa League! Giornata 7</Link> 
   
 </div>
 <div className="cl-home">
   <img src="src/assets/Bundesliga.svg" width={50} alt="champions league" />
-  <Link to={'/bundes'}>Scopri i risultati della BundesLiga! Giornata 6</Link> 
+  <Link className="link" to={'/bundes'}>Scopri i risultati della BundesLiga! Giornata 6</Link> 
   
 </div>
       </div>

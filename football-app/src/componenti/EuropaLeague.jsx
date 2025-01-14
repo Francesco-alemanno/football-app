@@ -26,13 +26,12 @@ const navigateToHome= ()=>{
         <div className='table'>
             <div>
             <img src={match.team1.teamIconUrl} width={40} key={match.team1.teamId} alt={match.team1.shortName} />
-        <p key={match.team1.teamId} >{match.team1.shortName}</p>
+        
 
         </div>
         <p>vs</p>
         <div>
           <img src={match.team2.teamIconUrl} width={40} key={match.team2.teamId} alt={match.team2.shortName} />
-          <p key={match.team2.teamId} >{match.team2.shortName}</p>  
         </div>
         </div>
         
