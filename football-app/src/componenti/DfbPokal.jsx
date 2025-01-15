@@ -3,8 +3,8 @@ import useSwr from 'swr';
 
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
-export function Champions() {
-  const { data, error, isLoading,mutate } = useSwr('https://api.openligadb.de/getmatchdata/ucl2024/2024/1', fetcher);
+export function DfbPokal() {
+  const { data, error, isLoading,mutate } = useSwr('https://api.openligadb.de/getmatchdata/dfb/2024/4', fetcher);
 const navigate= useNavigate()
 const navigateToHome= ()=>{
     navigate('/home')}
@@ -22,12 +22,11 @@ const navigateToHome= ()=>{
     <div className='champions-home'>
         <button className='btn' onClick={navigateToHome}>Torna indietro</button>
         <button className='btn' onClick={aggiornaApi}>Refresh</button>
-      <h3>Partite DFB  2024</h3>
+      
      
-
+        <h3>Partite DFB  2024</h3>
       {data.map((match) => {
-                  <h3 key={match.matchID}>{match.group.groupName.toUpperCase()}</h3>
-
+      
         const risultato = match.matchResults.find(
           (result) => result.resultName === 'Endergebnis'
         );
@@ -36,6 +35,7 @@ const navigateToHome= ()=>{
         if (!risultato) {
           return (
             <>
+            <h3 key={match.matchID}>{match.group.groupName.toUpperCase()}</h3>
               <div className="champions">
                 <div className="team1">
                   <div className="team1-container">

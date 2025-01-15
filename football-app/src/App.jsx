@@ -2,6 +2,7 @@
 import './App.css'
 import { BundesLiga } from './componenti/Bundesliga';
 import { Champions } from './componenti/Champions';
+import { DfbPokal } from './componenti/DfbPokal';
 import { EuropaLeague } from './componenti/EuropaLeague';
 import { Home } from './componenti/Home';
 import { Login } from './componenti/Login';
@@ -21,6 +22,7 @@ function App() {
       <Route path='/champions' element={<Champions></Champions>}></Route>
       <Route path='/europa' element={<EuropaLeague></EuropaLeague>}></Route>
       <Route path='/bundes' element={<BundesLiga></BundesLiga>}></Route>
+      <Route path='/pokal' element={<DfbPokal></DfbPokal>}></Route>
 
 
 

@@ -4,7 +4,7 @@ import useSwr from 'swr';
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export function BundesLiga() {
-  const { data, error, isLoading } = useSwr('https://api.openligadb.de/getmatchdata/bl1/2024/17', fetcher);
+  const { data, error, isLoading,mutate } = useSwr('https://api.openligadb.de/getmatchdata/bl1/2024/17', fetcher);
 const navigate= useNavigate()
 const navigateToHome= ()=>{
     navigate('/home')}
@@ -15,35 +15,109 @@ const navigateToHome= ()=>{
     return <p>Caricamento in corso</p>;
   }
 
+  const aggiornaApi=()=>{
+    mutate()
+  }
   return (
     <div className='champions-home'>
         <button className='btn' onClick={navigateToHome}>Torna indietro</button>
-      <h3>Partite BundesLiga Giornata 7 2024</h3>
+        <button className='btn' onClick={aggiornaApi}>Refresh</button>
+      <h3>Partite BundesLiga 2024</h3>
 
-
-        
-        {data.map((match)=>(
-        <div className='table'>
-            <div>
-            <img src={match.team1.teamIconUrl} width={40} key={match.team1.teamId} alt={match.team1.shortName} />
-
-        </div>
-        <p>vs</p>
-        <div>
-          <img src={match.team2.teamIconUrl} width={40} key={match.team2.teamId} alt={match.team2.shortName} />
-        </div>
-        </div>
-        
+      {data.map((match) => {
       
-    
-     
-    
+        const risultato = match.matchResults.find(
+          (result) => result.resultName === 'Endergebnis'
+        );
 
+        
+        if (!risultato) {
+          return (
+            <>
+                        <h3 key={match.matchID}>{match.group.groupName.toUpperCase()}</h3>
 
-      ))}
+              <div className="champions">
+                <div className="team1">
+                  <div className="team1-container">
+                    <img
+                      src={match.team1.teamIconUrl}
+                      width={35}
+                      alt={match.team1.teamName}
+                    />
+                  </div>
+                </div>
+
+                <p>vs</p>
+
+                <div className="team2">
+                <img
+                  src={match.team2.teamIconUrl}
+                  width={35}
+                  alt={match.team2.teamName}
+                />
+              </div>
+              
+                <p key={match.matchID}>Deve ancora essere giocata.</p>
+                <p>{new Date(match.matchDateTime).toLocaleString()}</p>
+
+              </div>
+            </>
+          );
+        }
         
 
-       
+        return (
+            
+                 <div key={match.matchID} >
+            <div className="match-description">
+              <p>{match.leagueName}</p>
+              <p>{match.group.groupName}</p>
+              <p>{new Date(match.matchDateTime).toLocaleString()}</p>
+            </div>
+
+            <div className="champions">
+              <div className="team1">
+                <div className="team1-container">
+                  <img
+                    src={match.team1.teamIconUrl}
+                    width={35}
+                    alt={match.team1.teamName}
+                  />
+                </div>
+              </div>
+
+              <div className="results">
+                <p>{risultato.pointsTeam1}</p> 
+                <p>vs</p>
+                <p>{risultato.pointsTeam2}</p> 
+              </div>
+
+              <div className="team2">
+                <img
+                  src={match.team2.teamIconUrl}
+                  width={35}
+                  alt={match.team2.teamName}
+                />
+              </div>
+              
+            </div>
+            <div className='marcatori'>
+               {match.goals.map((goal)=>(
+                <>
+                <li key={goal.goalID}>
+                Minuto: {goal.matchMinute}
+              </li>
+
+              <li key={goal.goalGetterID}>{goal.goalGetterName}</li>
+              <hr />
+                </>
+                
+              
+               ))}
+              </div>
+          </div>
+         
+        );
+      })}
     </div>
-  );
-}
+  );}

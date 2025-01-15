@@ -49,6 +49,11 @@
    background-color:#2BA9BC ;
    
  }
+ .input-results{
+  display: flex;
+  flex-direction: column;
+
+ }
  .table{
    display: flex;
    flex-direction: row;
