@@ -100,20 +100,21 @@ const navigateToHome= ()=>{
               </div>
               
             </div>
-            <div className='marcatori'>
-               {match.goals.map((goal)=>(
+            <div className="marcatori">
+              {match.goals.map((goal) => (
                 <>
-                <li key={goal.goalID}>
-                Minuto: {goal.matchMinute}
-              </li>
+                {goal.matchMinute ? <li key={goal.goalID}>Minuto: {goal.matchMinute}</li> : null
+}
+                  {goal.goalGetterID ? (
+                    <li key={goal.goalGetterID}>{goal.goalGetterName}</li>
+                  ) : (
+                    <p>Marcatori non disponibili</p>
+                  )}
 
-              <li key={goal.goalGetterID}>{goal.goalGetterName}</li>
-              <hr />
+                  <hr />
                 </>
-                
-              
-               ))}
-              </div>
+              ))}
+            </div>
           </div>
          
         );
