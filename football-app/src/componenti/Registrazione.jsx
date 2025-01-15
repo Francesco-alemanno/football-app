@@ -53,7 +53,7 @@ export function Registrazione() {
   
   return (
     <div>
-      <form onSubmit={handleSubmit} className="registrazione">
+      <form onSubmit={handleSubmit} className="form">
         <img src="src/assets/logo.svg" width={240} alt="logo" />
         <h3>Registrati</h3>
         

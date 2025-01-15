@@ -32,7 +32,7 @@ const userNameParse=JSON.parse(userName)
 </div>
 <div className="cl-home">
   <img src="src/assets/Bundesliga.svg" width={50} alt="champions league" />
-  <Link className="link" to={'/bundes'}>Scopri i risultati della BundesLiga! Giornata 6</Link> 
+  <Link className="link" to={'/bundes'}>Scopri i risultati della BundesLiga! Giornata 7</Link> 
   
 </div>
       </div>

@@ -51,7 +51,7 @@ const user= localStorage.setItem('user', userExist)
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="login">
+      <form onSubmit={handleSubmit} className="form">
         <img src="src/assets/logo.svg" width={240} alt="logo" />
         <h3>Login</h3>
         

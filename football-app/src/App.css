@@ -15,7 +15,7 @@
    color: #888;
  }
  /* registrazione */
- .registrazione{
+ .form{
    display: flex;
    flex-direction: column;
    border: 8px solid black;
@@ -27,34 +27,24 @@
   justify-content: center;
   height: 48rem;
  }
- .registrazione input{
+ .form input{
    padding: 8px;
    border-radius: 8px;
    border: none;
  }
- 
- 
- /* login */
- 
- .login{
-  display: flex;
-  flex-direction: column;
-  border: 8px solid black;
-  padding: 20px;
+ .form button{
+  padding: 10px;
   border-radius: 8px;
-  background-color: #2BA9BC;
-  gap: 5px;
- align-items: center;
- justify-content: center;
- height: 48rem;
+  border: 5px solid black;
+
+  width: 50%;
+  margin-top: 10px;
  }
  
- .login input{
-   padding: 8px;
-   border-radius: 8px;
-   border: none;
- }
  
+/* ----------------- */
+ 
+
  .home{
    background-color:#2BA9BC ;
    
@@ -147,7 +137,9 @@ gap: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  
+  background-color: #efeaff;
+  margin-top: 10px;
+  border-radius: 8px;
 }
 .link{
   text-decoration: none;
