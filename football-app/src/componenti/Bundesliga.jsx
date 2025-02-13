@@ -4,7 +4,7 @@ import useSwr from 'swr';
 const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export function BundesLiga() {
-  const { data, error, isLoading,mutate } = useSwr('https://api.openligadb.de/getmatchdata/bl1/2024/17', fetcher);
+  const { data, error, isLoading,mutate } = useSwr('https://api.openligadb.de/getmatchdata/bl2/2024/22', fetcher);
 const navigate= useNavigate()
 const navigateToHome= ()=>{
     navigate('/home')}
@@ -15,13 +15,10 @@ const navigateToHome= ()=>{
     return <p>Caricamento in corso</p>;
   }
 
-  const aggiornaApi=()=>{
-    mutate()
-  }
+
   return (
     <div className='champions-home'>
         <button className='btn' onClick={navigateToHome}>Torna indietro</button>
-        <button className='btn' onClick={aggiornaApi}>Refresh</button>
       <h3>Partite BundesLiga 2024</h3>
 
       {data.map((match) => {

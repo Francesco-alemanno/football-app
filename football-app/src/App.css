@@ -1,154 +1,301 @@
-#root {
- 
-  margin: 0;
-   
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
- }
- 
- 
- 
- .card {
-   padding: 2em;
- }
- 
- .read-the-docs {
-   color: #888;
- }
- /* registrazione */
- .form{
-   display: flex;
-   flex-direction: column;
-   border: 8px solid black;
-   padding: 20px;
-   border-radius: 8px;
-   background-color: #2BA9BC;
-   gap: 5px;
-  align-items: center;
-  justify-content: center;
-  height: 48rem;
- }
- .form input{
-   padding: 8px;
-   border-radius: 8px;
-   border: none;
- }
- .form button{
-  padding: 10px;
-  border-radius: 8px;
-  border: 5px solid black;
-
-  width: 50%;
-  margin-top: 10px;
- }
- 
- 
-/* ----------------- */
- 
-
- .home{
-   background-color:#2BA9BC ;
-   
- }
- .input-results{
-  display: flex;
-  flex-direction: column;
-
- }
- .table{
-   display: flex;
-   flex-direction: row;
-   padding: 10px;
-   border: 1px solid black;
- }
- 
- .nav-home{
-   display: flex;
-   justify-content: space-around;
-   align-items: center;
-   border: 2px solid black;
-   background-color:#2BA9BC ;
-   padding: 10px;
- }
-
- .nav-utente{
-  text-align: center;
-  font-size: 12px;
-  margin: 0;
- }
- .cl-home{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border: 2px solid black;
-  background-color:#2BA9BC ;
-padding: 20px;
-gap: 15px;
-margin-top: 10px;
-
-}
-.champions{
+/* Contenitore principale della home */
+.nav-home {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid black;
-  background-color: #efeaff;
-padding: 10px;
-gap: 15px;
-margin-top: 10px;
-border-radius: 8px;
+  background-color: #0046ad;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
 }
-.team1{
+
+.nav-home img {
+  width: 50px;
+}
+
+.nav-home p {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 10px;
+  text-transform: uppercase;
+}
+
+.nav-utente {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
-.team2{
+
+.nav-utente img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.nav-utente p {
+  font-size: 16px;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+/* Container per gli input dei risultati */
+.input-results {
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
+  padding: 20px;
+}
+
+/* Ogni blocco di risultati */
+.cl-home {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  flex-direction: column;
-}
-.results{
-  display: flex;
-  gap: 10px;
-  
+  text-align: center;
 }
 
-.marcatori{
-  display: flex;
-  flex-direction: column;
-  border: 2px solid black;
-  background-color: #efeaff;
-padding: 10px;
-margin-top: 10px;
-border-radius: 8px;
-list-style: none;
-gap: 5px;
+.cl-home img {
+  width: 50px;
+  margin-bottom: 10px;
 }
 
-.btn{
-  padding: 10px;
-  border: 2px solid black;
-  background-color:#2BA9BC ;
-  border-radius: 8px;
-}
-.champions-home{
-  background-color: #2BA9BC;
-  border: 2px solid black;
-padding: 10px;
+.cl-home .link {
+  font-size: 16px;
+  color: #0046ad;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
 }
 
-/* --------------------------- */
-.table{
+.cl-home .link:hover {
+  color: #003387;
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+  .nav-home {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .input-results {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cl-home {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Style generale per il contenitore della pagina */
+.champions-home {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Pulsante principale */
+.btn {
+  background-color: #0046ad;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #003387;
+}
+
+/* Titolo della pagina */
+h3 {
+  text-align: center;
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Container per ogni partita */
+.champions {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  background-color: #efeaff;
-  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #fff;
   border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.link{
+
+.champions .team1, .champions .team2 {
+  display: flex;
+  align-items: center;
+}
+
+.champions .team1-container, .champions .team2 img {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+.champions .results {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 20px;
+}
+
+/* Sezione marcatori */
+.marcatori {
+  margin-top: 15px;
+}
+
+.marcatori li {
+  font-size: 14px;
+  color: #555;
+  list-style-type: none;
+  margin-bottom: 5px;
+}
+
+.marcatori hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+/* Per quando non ci sono risultati */
+.champions p {
+  font-size: 14px;
+  color: #888;
+  margin-top: 10px;
+}
+
+/* Contenitore descrizione partita */
+.match-description {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+  .champions {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .champions .team1, .champions .team2 {
+    margin-bottom: 10px;
+  }
+
+  .champions .results {
+    margin: 10px 0;
+  }
+}
+
+
+/* Login */
+
+/* Contenitore principale del form */
+.form {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.form img {
+  width: 240px;
+  margin-bottom: 20px;
+}
+
+.form h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.form label {
+  font-size: 16px;
+  color: #333;
+  text-align: left;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #0046ad;
+  box-shadow: 0 0 5px rgba(0, 70, 173, 0.5);
+}
+
+.form button {
+  background-color: #0046ad;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #003387;
+}
+
+.form p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 20px;
+}
+
+.form p a {
+  color: #0046ad;
   text-decoration: none;
-  color: black;
+}
+
+.form p a:hover {
+  color: #003387;
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+  .form {
+    padding: 20px;
+    width: 90%;
+  }
 }

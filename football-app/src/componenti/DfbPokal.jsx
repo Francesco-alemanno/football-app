@@ -15,13 +15,10 @@ const navigateToHome= ()=>{
     return <p>Caricamento in corso</p>;
   }
 
-  const aggiornaApi=()=>{
-    mutate()
-  }
+  
   return (
     <div className='champions-home'>
         <button className='btn' onClick={navigateToHome}>Torna indietro</button>
-        <button className='btn' onClick={aggiornaApi}>Refresh</button>
       
      
         <h3>Partite DFB  2024</h3>

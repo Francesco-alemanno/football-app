@@ -5,7 +5,7 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export function Champions() {
   const { data, error, isLoading, mutate } = useSwr(
-    "https://api.openligadb.de/getmatchdata/ucl2024/2024/1",
+    "https://api.openligadb.de/getmatchdata/ucl24/2024/9",
     fetcher
   );
   const navigate = useNavigate();
@@ -19,18 +19,14 @@ export function Champions() {
     return <p>Caricamento in corso</p>;
   }
 
-  const aggiornaApi = () => {
-    mutate();
-  };
+ 
   return (
     <div className="champions-home">
       <button className="btn" onClick={navigateToHome}>
         Torna indietro
       </button>
-      <button className="btn" onClick={aggiornaApi}>
-        Refresh
-      </button>
-      <h3>Partite DFB 2024</h3>
+      
+      <h3>CHAMPIONS LEAGUE</h3>
 
       {data.map((match) => {
         <h3 key={match.matchID}>{match.group.groupName.toUpperCase()}</h3>;
