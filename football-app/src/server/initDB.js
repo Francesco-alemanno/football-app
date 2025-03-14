@@ -1,6 +1,9 @@
 import pgPromise from "pg-promise";
+import dotenv from 'dotenv'
+dotenv.config()
+const {URL}= process.env
 export const db = pgPromise()(
-  "postgresql://postgres:Fingerskate1@localhost:5432/football-app"
+  URL
 );
 
 const initDb = async () => {
