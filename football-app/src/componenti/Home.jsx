@@ -1,8 +1,27 @@
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
 export function Home(){
-const userName=localStorage.getItem('user')
-const userNameParse=JSON.parse(userName)
+
+  const [utenteLoggato, setUtenteLoggato]=useState('')
+const userId=localStorage.getItem('userId')
+const getUser= async () => {
+  try {
+    const response= await fetch(`http://localhost:5001/home/${userId}`)
+    
+    const responseData=await response.json()
+    
+    setUtenteLoggato(responseData)
+    
+  } catch (error) {
+    console.error(error.message)
+  }
+}
+useEffect(() => {
+  if (userId) {
+    getUser();
+  }
+}, [userId]);
 
     return(
       <div>
@@ -13,7 +32,7 @@ const userNameParse=JSON.parse(userName)
   
           <div className="nav-utente">
           <img src="src/assets/iconaUtente.svg" width={20} alt="icona" />
-<p>{userNameParse.nome.toUpperCase()} {userNameParse.cognome.toUpperCase()}</p>
+<p>{utenteLoggato?.nome?.toUpperCase()} {utenteLoggato?.cognome?.toUpperCase()}</p>
           </div>
 
           {/* ----------------------------------- */}

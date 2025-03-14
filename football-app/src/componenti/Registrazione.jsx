@@ -35,12 +35,27 @@ export function Registrazione() {
   };
 
   
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    console.log("Dati inviati al server:", data); 
+try {
+  const response= await fetch('http://localhost:5001/registrazione',{
+    method:'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  })
+  if(!response.ok){
+    setErrore('errore durante la chiamata fetch, qualcosa è andato storto')
+    return
+  }
+  
+  navigate('/login')
+} catch (error) {
+  setErrore(error.message)
+}
+    
 
-    localStorage.setItem("users", JSON.stringify(data));
-
-    navigate('/login')
+    
     setData({
       nome: "",
       cognome: "",
@@ -95,7 +110,7 @@ export function Registrazione() {
         
         {errore && <p style={{ color: "red" }}> {errore}</p>}
         {errorEmail && <p style={{ color: "red" }}> {errorEmail}</p>}
-        <button onClick={Navigate('/login')} disabled={errore ? true : false} type="submit">
+        <button  disabled={errore ? true : false} type="submit">
           {" "}
           Registrati
         </button>

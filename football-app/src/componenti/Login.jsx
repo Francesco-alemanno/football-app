@@ -7,6 +7,7 @@ export function Login() {
     password: "",
   });
 
+  const [message,setMessage]=useState('')
   
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -20,27 +21,29 @@ export function Login() {
   
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
+try {
+  const response= await fetch('http://localhost:5001/login',{
+    method:'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  })
+  if(!response.ok){
+    setMessage('Credenziali errate')
+    return
+  }
+  const responseData= await response.json()
+  console.log(responseData)
+  localStorage.setItem('userId', responseData.userId)
+  setMessage('login effettuato con successo, stai per essere reindirizzato nella home...')
+  setTimeout(() => {
+    navigate('/home')
+  }, 1000);
+} catch (error) {
+  setMessage(error.message)
+}
     
-    const userExist = localStorage.getItem("users");
-    
-
-    if (userExist) {
-      const parsedUsers = JSON.parse(userExist); 
-      
-      
-      if (parsedUsers.email === data.email && parsedUsers.password === data.password) {
-        alert('Accesso consentito');
-        navigate('/home')
-      } else {
-        alert('Accesso negato');
-      }
-    } else {
-      alert('Nessun utente trovato');
-    }
-const user= localStorage.setItem('user', userExist)
    
     setData({
       email: "",
@@ -73,6 +76,7 @@ const user= localStorage.setItem('user', userExist)
         />
         <button type="submit">Login</button>
         <p>Non sei ancora registrato? <Link to={'/registrazione'}>Registrati!</Link></p>
+        {message && <p>{message}</p>}
       </form>
     </div>
   );

@@ -99,21 +99,7 @@ export function Champions() {
                 />
               </div>
             </div>
-            <div className="marcatori">
-              {match.goals.map((goal) => (
-                <>
-                {goal.matchMinute ? <li key={goal.goalID}>Minuto: {goal.matchMinute}</li> : null
-}
-                  {goal.goalGetterID ? (
-                    <li key={goal.goalGetterID}>{goal.goalGetterName}</li>
-                  ) : (
-                    <p>Marcatori non disponibili</p>
-                  )}
-
-                  <hr />
-                </>
-              ))}
-            </div>
+            
           </div>
         );
       })}
