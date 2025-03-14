@@ -1,15 +1,11 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useSwr from "swr";
 
-const fetcher = (url) =>
-  fetch(url)
-    .then((response) => response.json())
-    .catch((error) => console.error(error.message));
+const fetcher = (url) => fetch(url).then((response) => response.json());
 
-export function EuropaLeague() {
+export function NationsLeague() {
   const { data, error, isLoading, mutate } = useSwr(
-    "https://api.openligadb.de/getmatchdata/uel24/2024/11",
+    "https://api.openligadb.de/getmatchdata/nla/2024/5",
     fetcher
   );
   const navigate = useNavigate();
@@ -24,11 +20,17 @@ export function EuropaLeague() {
   }
 
   return (
-    <div className="champions-home" style={{ backgroundColor: "#FF7700" }}>
+    <div
+      className="champions-home"
+      style={{
+        background:
+          "linear-gradient(135deg, #1B567E, #D92028, #FFD700, #3C8031)",
+      }}
+    >
       <button className="btn" onClick={navigateToHome}>
         Torna indietro
       </button>
-      <h3>Partite UEL 2024</h3>
+      <h3>Partite Nations League 2025</h3>
 
       {data.map((match) => {
         const risultato = match.matchResults.find(

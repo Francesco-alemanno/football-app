@@ -5,7 +5,7 @@ const fetcher = (url) => fetch(url).then((response) => response.json());
 
 export function Champions() {
   const { data, error, isLoading, mutate } = useSwr(
-    "https://api.openligadb.de/getmatchdata/ucl24/2024/9",
+    "https://api.openligadb.de/getmatchdata/ucl24/2024/11",
     fetcher
   );
   const navigate = useNavigate();
@@ -19,14 +19,13 @@ export function Champions() {
     return <p>Caricamento in corso</p>;
   }
 
- 
   return (
-    <div className="champions-home">
+    <div className="champions-home" style={{ backgroundColor: "#1A2D5A" }}>
       <button className="btn" onClick={navigateToHome}>
         Torna indietro
       </button>
-      
-      <h3>CHAMPIONS LEAGUE</h3>
+
+      <h3 style={{ color: "white" }}>CHAMPIONS LEAGUE</h3>
 
       {data.map((match) => {
         <h3 key={match.matchID}>{match.group.groupName.toUpperCase()}</h3>;
@@ -43,7 +42,7 @@ export function Champions() {
                   <div className="team1-container">
                     <img
                       src={match.team1.teamIconUrl}
-                      width={35}
+                      width={150}
                       alt={match.team1.teamName}
                     />
                   </div>
@@ -54,7 +53,7 @@ export function Champions() {
                 <div className="team2">
                   <img
                     src={match.team2.teamIconUrl}
-                    width={35}
+                    width={150}
                     alt={match.team2.teamName}
                   />
                 </div>
@@ -68,7 +67,7 @@ export function Champions() {
 
         return (
           <div key={match.matchID}>
-            <div className="match-description">
+            <div style={{ color: "white" }} className="match-description">
               <p>{match.leagueName}</p>
               <p>{match.group.groupName}</p>
               <p>{new Date(match.matchDateTime).toLocaleString()}</p>
@@ -87,7 +86,7 @@ export function Champions() {
 
               <div className="results">
                 <p>{risultato.pointsTeam1}</p>
-                <p>vs</p>
+                <p>:</p>
                 <p>{risultato.pointsTeam2}</p>
               </div>
 
@@ -99,7 +98,6 @@ export function Champions() {
                 />
               </div>
             </div>
-            
           </div>
         );
       })}

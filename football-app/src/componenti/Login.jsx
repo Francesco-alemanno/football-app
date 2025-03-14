@@ -7,8 +7,8 @@ export function Login() {
     password: "",
   });
 
-  const [message,setMessage]=useState('')
-  
+  const [message, setMessage] = useState("");
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setData({
@@ -18,46 +18,44 @@ export function Login() {
   };
 
   const navigate = useNavigate();
-  
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-try {
-  const response= await fetch('http://localhost:5001/login',{
-    method:'POST',
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  })
-  if(!response.ok){
-    setMessage('Credenziali errate')
-    return
-  }
-  const responseData= await response.json()
-  console.log(responseData)
-  localStorage.setItem('userId', responseData.userId)
-  setMessage('login effettuato con successo, stai per essere reindirizzato nella home...')
-  setTimeout(() => {
-    navigate('/home')
-  }, 1000);
-} catch (error) {
-  setMessage(error.message)
-}
-    
-   
+    try {
+      const response = await fetch("http://localhost:5001/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        setMessage("Credenziali errate");
+        return;
+      }
+      const responseData = await response.json();
+      console.log(responseData);
+      localStorage.setItem("userId", responseData.userId);
+      setMessage(
+        "login effettuato con successo, stai per essere reindirizzato nella home..."
+      );
+      setTimeout(() => {
+        navigate("/home");
+      }, 1000);
+    } catch (error) {
+      setMessage(error.message);
+    }
+
     setData({
       email: "",
       password: "",
     });
   };
- 
 
   return (
     <div>
       <form onSubmit={handleSubmit} className="form">
         <img src="src/assets/logo.svg" width={240} alt="logo" />
         <h3>Login</h3>
-        
+
         <label>Email:</label>
         <input
           type="text"
@@ -69,13 +67,16 @@ try {
         <label> Password:</label>
         <input
           type="password"
-          name="password" 
+          name="password"
           value={data.password}
           onChange={handleChange}
           placeholder="Inserisci la tua password..."
         />
         <button type="submit">Login</button>
-        <p>Non sei ancora registrato? <Link to={'/registrazione'}>Registrati!</Link></p>
+        <p>
+          Non sei ancora registrato?{" "}
+          <Link to={"/registrazione"}>Registrati!</Link>
+        </p>
         {message && <p>{message}</p>}
       </form>
     </div>

@@ -11,7 +11,7 @@ export function Registrazione() {
   const [errore, setErrore] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
 
- const navigate=useNavigate()
+  const navigate = useNavigate();
   const handleChange = (event) => {
     const { name, value } = event.target;
     if (name === "password") {
@@ -34,28 +34,25 @@ export function Registrazione() {
     }));
   };
 
-  
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Dati inviati al server:", data); 
-try {
-  const response= await fetch('http://localhost:5001/registrazione',{
-    method:'POST',
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  })
-  if(!response.ok){
-    setErrore('errore durante la chiamata fetch, qualcosa è andato storto')
-    return
-  }
-  
-  navigate('/login')
-} catch (error) {
-  setErrore(error.message)
-}
-    
+    console.log("Dati inviati al server:", data);
+    try {
+      const response = await fetch("http://localhost:5001/registrazione", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        setErrore("errore durante la chiamata fetch, qualcosa è andato storto");
+        return;
+      }
 
-    
+      navigate("/login");
+    } catch (error) {
+      setErrore(error.message);
+    }
+
     setData({
       nome: "",
       cognome: "",
@@ -64,57 +61,57 @@ try {
     });
   };
 
-  
-  
   return (
     <div>
       <form onSubmit={handleSubmit} className="form">
         <img src="src/assets/logo.svg" width={240} alt="logo" />
         <h3>Registrati</h3>
-        
+
         <label>Nome:</label>
         <input
           type="text"
-          name="nome" 
+          name="nome"
           value={data.nome}
           onChange={handleChange}
           placeholder="Inserisci il tuo nome..."
         />
-        
+
         <label>Cognome:</label>
         <input
           type="text"
-          name="cognome" 
+          name="cognome"
           value={data.cognome}
           onChange={handleChange}
           placeholder="Inserisci il tuo cognome..."
         />
-        
+
         <label>Email:</label>
         <input
           type="text"
-          name="email" 
+          name="email"
           value={data.email}
           onChange={handleChange}
           placeholder="Inserisci la tua Email..."
         />
-        
+
         <label>Password:</label>
         <input
           type="password"
-          name="password" 
+          name="password"
           value={data.password}
           onChange={handleChange}
           placeholder="Inserisci la tua password..."
         />
-        
+
         {errore && <p style={{ color: "red" }}> {errore}</p>}
         {errorEmail && <p style={{ color: "red" }}> {errorEmail}</p>}
-        <button  disabled={errore ? true : false} type="submit">
+        <button disabled={errore ? true : false} type="submit">
           {" "}
           Registrati
         </button>
-        <p>Hai già un account? <Link to={'/login'}>Login</Link></p>
+        <p>
+          Hai già un account? <Link to={"/login"}>Login</Link>
+        </p>
       </form>
     </div>
   );

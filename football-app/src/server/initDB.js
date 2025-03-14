@@ -1,9 +1,11 @@
 import pgPromise from "pg-promise";
-import dotenv from 'dotenv'
-dotenv.config()
-const {URL}= process.env
+import dotenv from "dotenv";
+
+dotenv.config();
+
+console.log(process.env.URL);
 export const db = pgPromise()(
-  URL
+  "postgresql://postgres:Fingerskate1@localhost:5432/football-app"
 );
 
 const initDb = async () => {
@@ -22,27 +24,21 @@ const initDb = async () => {
     //             'Mungiovino',
     //             'gianlorenzo@gmail.com',
     //             'Pass123!'
-                
-                
-                
+
     //             )`);
     // await db.none(`INSERT INTO users (nome, cognome, email, password) VALUES(
     //                 'Marco',
     //                 'Grassi',
     //                 'marcog@gmail.com',
     //                 'Pass123!'
-                    
-                    
-                    
+
     //                 )`);
     // await db.none(`INSERT INTO users (nome, cognome, email, password) VALUES(
     //                     'Marco',
     //                     'Filannino',
     //                     'marcof@gmail.com',
     //                     'Pass123!'
-                        
-                        
-                        
+
     //                     )`);
 
     console.log("tabelle create correttamente");

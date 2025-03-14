@@ -6,6 +6,7 @@ import { DfbPokal } from './componenti/DfbPokal';
 import { EuropaLeague } from './componenti/EuropaLeague';
 import { Home } from './componenti/Home';
 import { Login } from './componenti/Login';
+import { NationsLeague } from './componenti/NationsLeague';
 import { Registrazione } from './componenti/Registrazione'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route path='/europa' element={<EuropaLeague></EuropaLeague>}></Route>
       <Route path='/bundes' element={<BundesLiga></BundesLiga>}></Route>
       <Route path='/pokal' element={<DfbPokal></DfbPokal>}></Route>
+      <Route path='/nationsleague' element={<NationsLeague></NationsLeague>}></Route>
 
 
 
