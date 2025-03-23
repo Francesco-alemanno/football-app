@@ -21,6 +21,10 @@ export function Home() {
     }
   }, [userId]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("userId");
+  };
+
   return (
     <div>
       {/* ---------------------------------- */}
@@ -34,6 +38,12 @@ export function Home() {
             {utenteLoggato?.nome?.toUpperCase()}{" "}
             {utenteLoggato?.cognome?.toUpperCase()}
           </p>
+        </div>
+        <div>
+          <Link to={"/login"} onClick={handleLogout}>
+            {" "}
+            <button className="logout-btn">Logout</button>
+          </Link>
         </div>
 
         {/* ----------------------------------- */}

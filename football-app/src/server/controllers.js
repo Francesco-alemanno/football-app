@@ -2,8 +2,9 @@ import pgPromise from "pg-promise";
 import { db } from "./initDB.js";
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
+dotenv.config()
+const SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS, 10) || 10;
 
-const {SALT_ROUNDS}=parseInt(process.env)
 export const getAllUsers = async (req, res) => {
   try {
     const users = await db.manyOrNone(`SELECT * FROM users`);

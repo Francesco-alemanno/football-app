@@ -46,13 +46,12 @@
   justify-content: center;
   padding: 20px;
 }
-.results{
+.results {
   display: flex;
   gap: 10px;
   align-items: center;
   justify-content: center;
 }
-
 
 /* Ogni blocco di risultati */
 .cl-home {
@@ -64,7 +63,11 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  transition: background 0.3s, transform 0.2s;
+  cursor: pointer;
 }
+
+
 
 .cl-home img {
   width: 80px;
@@ -79,9 +82,12 @@
   text-transform: uppercase;
   transition: color 0.3s ease;
 }
-
+.cl-home:hover{
+  transform: scale(1.05);
+}
 .cl-home .link:hover {
   color: #003387;
+  
 }
 
 /* Media query per dispositivi mobili */
@@ -104,7 +110,7 @@
 
 /* Style generale per il contenitore della pagina */
 .champions-home {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: #f4f4f9;
   padding: 20px;
   border-radius: 10px;
@@ -151,14 +157,17 @@ h3 {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.champions .team1, .champions .team2 {
+.champions .team1,
+.champions .team2 {
   display: flex;
   align-items: center;
 }
 
-.champions .team1-container, .champions .team2-container, img {
+.champions .team1-container,
+.champions .team2-container,
+img {
   width: 100px;
-  
+
   margin-right: 10px;
 }
 
@@ -167,20 +176,17 @@ h3 {
   font-weight: bold;
   color: #333;
   margin: 0 20px;
-  
 }
- .team1 img,  .team2 img{
+.team1 img,
+.team2 img {
   width: 50px;
- 
- }
-
+}
 
 /* Per quando non ci sono risultati */
 .champions p {
   font-size: 25px;
   color: #888;
   margin-top: 10px;
-  
 }
 
 /* Contenitore descrizione partita */
@@ -197,21 +203,19 @@ h3 {
     align-items: center;
     flex-direction: row;
     justify-content: center;
-   
-    
   }
 
-  .champions .team1, .champions .team2 {
+  .champions .team1,
+  .champions .team2 {
     margin-bottom: 10px;
   }
-.team2{
-  margin-left: 50px;
-}
+  .team2 {
+    margin-left: 50px;
+  }
   .champions .results {
     margin: 10px 0;
   }
 }
-
 
 /* Login */
 
@@ -299,4 +303,28 @@ h3 {
     padding: 20px;
     width: 90%;
   }
+}
+
+.logout-btn {
+  background-color: #e74c3c; /* Rosso */
+  color: #fff; /* Testo bianco */
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
+  text-align: center;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b; /* Rosso più scuro */
+  transform: scale(1.05); /* Leggera espansione */
+}
+
+.logout-btn:active {
+  background-color: #a93226; /* Ancora più scuro quando cliccato */
+  transform: scale(0.98); /* Piccola compressione */
 }
