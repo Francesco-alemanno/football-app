@@ -22,7 +22,7 @@ export function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:5001/login", {
+      const response = await fetch("https://football-p3pjfzag0-francescos-projects-949cebc9.vercel.app/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

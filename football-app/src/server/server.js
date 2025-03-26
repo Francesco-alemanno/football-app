@@ -5,7 +5,14 @@ import { getAllUsers, login, registrazione, userLogged } from './controllers.js'
 const app= express()
 const PORT= 5001;
 // middleware
-app.use(cors())
+app.use(
+    cors({
+      origin: "*", 
+      methods: "GET,POST,PUT,DELETE",
+      allowedHeaders: "Content-Type,Authorization",
+    })
+  );
+
 app.use(json())
 
 // CHIAMATE
@@ -19,7 +26,12 @@ app.post('/login', login)
 // home
 app.get('/home/:userId', userLogged)
 
-
+app.use((req, res, next) => {
+    if (req.headers["x-forwarded-proto"] !== "https") {
+      return res.redirect(`https://${req.headers.host}${req.url}`);
+    }
+    next();
+  });
 
 // listener
 app.listen(PORT, ()=>{
