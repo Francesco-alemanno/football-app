@@ -10,7 +10,7 @@ export function NationsLeague() {
   );
   const navigate = useNavigate();
   const navigateToHome = () => {
-    navigate("/home");
+    navigate("/");
   };
   if (error) {
     return <p>Errore nel fetching dati</p>;

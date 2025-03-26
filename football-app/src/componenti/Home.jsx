@@ -29,11 +29,11 @@ export function Home() {
     <div>
       {/* ---------------------------------- */}
       <div className="nav-home">
-        <img src="src/assets/logo.svg" alt="" />
+        <img src="/logo.svg" alt="" />
         <p>SoccerZone</p>
 
         <div className="nav-utente">
-          <img src="src/assets/iconaUtente.svg" width={20} alt="icona" />
+          <img src="/iconaUtente.svg" width={20} alt="icona" />
           <p>
             {utenteLoggato?.nome?.toUpperCase()}{" "}
             {utenteLoggato?.cognome?.toUpperCase()}
@@ -50,32 +50,32 @@ export function Home() {
       </div>
       <div className="input-results">
         <div className="cl-home">
-          <img src="src/assets/champions.svg" alt="champions league" />
+          <img src="/champions.svg" alt="champions league" />
           <Link className="link" to={"/champions"}>
             Scopri i risultati della Uefa Champions League!
           </Link>
         </div>
 
         <div className="cl-home">
-          <img src="src/assets/EL.svg" alt="champions league" />
+          <img src="/EL.svg" alt="champions league" />
           <Link className="link" to={"/europa"}>
             Scopri i risultati della Uefa Europa League!{" "}
           </Link>
         </div>
         <div className="cl-home">
-          <img src="src/assets/Bundesliga.svg" alt="bundesliga " />
+          <img src="/Bundesliga.svg" alt="bundesliga " />
           <Link className="link" to={"/bundes"}>
             Scopri i risultati della BundesLiga!
           </Link>
         </div>
         <div className="cl-home">
-          <img src="src/assets/DFB.svg" alt="Dfb pokal" />
+          <img src="/DFB.svg" alt="Dfb pokal" />
           <Link className="link" to={"/pokal"}>
             Scopri i risultati della Dfb pokal!{" "}
           </Link>
         </div>
         <div className="cl-home">
-          <img src="src/assets/nations-league.svg" alt="Nations League" />
+          <img src="/nations-league.svg" alt="Nations League" />
           <Link className="link" to={"/nationsleague"}>
             Scopri i risultati della Nations League!{" "}
           </Link>
