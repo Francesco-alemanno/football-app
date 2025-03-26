@@ -29,7 +29,10 @@ export const registrazione = async (req, res) => {
       "INSERT INTO users (nome, cognome, email, password) VALUES($1,$2,$3,$4)",
       [nome, cognome, email, hashedPassword]
     );
- 
+    res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
     res.status(200).json({ message: "registrazione andata a buon fine" });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -50,6 +53,10 @@ export const login = async (req, res) => {
     if(!matching){
       return res.status(400).json({message:'Credenziali errate'})
     }
+    res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
     res.status(200).json({ message: "login effettuato con successo", userId:user.id }, );
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -65,6 +72,10 @@ export const userLogged= async (req,res) => {
         res.status(400).json({message:'utente non trovato o inesistente'})
         return
        }
+       res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
+       res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+       res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+       res.header("Access-Control-Allow-Credentials", "true");
         res.status(200).json(user)
     } catch (error) {
         res.status(500).json(error)

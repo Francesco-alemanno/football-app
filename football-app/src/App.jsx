@@ -17,9 +17,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home></Home>}></Route>
-      <Route path='/registrazione' element= {<Registrazione></Registrazione>}></Route>
       <Route path='/login' element= {<Login></Login>}></Route>
-      {/* <Route path='/home' element={<Home></Home>}></Route> */}
       <Route path='/champions' element={<Champions></Champions>}></Route>
       <Route path='/europa' element={<EuropaLeague></EuropaLeague>}></Route>
       <Route path='/bundes' element={<BundesLiga></BundesLiga>}></Route>

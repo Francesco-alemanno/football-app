@@ -32,7 +32,7 @@ export function Login() {
         return;
       }
       const responseData = await response.json();
-      console.log(responseData);
+      
       localStorage.setItem("userId", responseData.userId);
       setMessage(
         "login effettuato con successo, stai per essere reindirizzato nella home..."

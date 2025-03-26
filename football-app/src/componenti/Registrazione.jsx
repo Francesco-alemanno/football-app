@@ -36,7 +36,7 @@ export function Registrazione() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Dati inviati al server:", data);
+    
     try {
       const response = await fetch("https://football-p3pjfzag0-francescos-projects-949cebc9.vercel.app/registrazione", {
         method: "POST",
