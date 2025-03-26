@@ -7,11 +7,13 @@ const PORT= 5001;
 // middleware
 app.use(
     cors({
-      origin: "*", 
-      methods: "GET,POST,PUT,DELETE",
-      allowedHeaders: "Content-Type,Authorization",
+      origin: "*", // 🔴 Prova con "*" per accettare richieste da qualsiasi origine
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      allowedHeaders: ["Content-Type", "Authorization"],
+      credentials: true, 
     })
   );
+  
 
 app.use(json())
 
